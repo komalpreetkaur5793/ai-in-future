@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komalpreet Kaur — The Future of AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        geist: ['Geist', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#18181B',
+                        accent: '#FACC15',
+                        'accent-dark': '#EAB308',
+                        surface: '#FAFAFA',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #FAFAFA; color: #18181B; overflow-x: hidden; }
+        .font-geist { font-family: 'Geist', sans-serif; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #FAFAFA; }
+        ::-webkit-scrollbar-thumb { background: #D4D4D8; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #A1A1AA; }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(250,204,21,0.2); }
+            50% { box-shadow: 0 0 40px rgba(250,204,21,0.4); }
+        }
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes dash {
+            to { stroke-dashoffset: 0; }
+        }
+
+        .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+        .animate-on-scroll.from-left { transform: translateX(-40px); }
+        .animate-on-scroll.from-left.visible { transform: translateX(0); }
+        .animate-on-scroll.from-right { transform: translateX(40px); }
+        .animate-on-scroll.from-right.visible { transform: translateX(0); }
+        .animate-on-scroll.scale-up { transform: scale(0.9); }
+        .animate-on-scroll.scale-up.visible { transform: scale(1); }
+
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+        .delay-500 { transition-delay: 0.5s; }
+
+        .float-animation { animation: float 6s ease-in-out infinite; }
+        .float-animation-delay { animation: float 6s ease-in-out 2s infinite; }
+        .pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+        .gradient-bg {
+            background: linear-gradient(-45deg, #18181B, #27272A, #3f3f46, #18181B);
+            background-size: 400% 400%;
+            animation: gradient-shift 8s ease infinite;
+        }
+        .spin-slow { animation: spin-slow 20s linear infinite; }
+
+        /* Glass Card */
+        .glass-card {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+        }
+        .glass-card-dark {
+            background: rgba(24,24,27,0.8);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(63,63,70,0.5);
+        }
+
+        /* Decorative Blobs */
+        .blob-yellow {
+            position: absolute;
+            width: 400px; height: 400px;
+            background: rgba(250,204,21,0.15);
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+        }
+        .blob-blue {
+            position: absolute;
+            width: 300px; height: 300px;
+            background: rgba(59,130,246,0.1);
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        /* Section divider */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #E4E4E7, transparent);
+        }
+
+        /* Nav active */
+        .nav-link.active { color: #18181B; font-weight: 600; }
+
+        /* Counter animation */
+        .counter { font-variant-numeric: tabular-nums; }
+
+        /* Card hover effect */
+        .ai-card {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .ai-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -12px rgba(0,0,0,0.15);
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-menu.open { max-height: 400px; }
+
+        /* Progress bar */
+        .progress-bar {
+            height: 3px;
+            background: #FACC15;
+            transform-origin: left;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        /* Typewriter */
+        .typewriter-text {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 2px solid #FACC15;
+            animation: typewriter 3s steps(40) 0.5s forwards, blink 0.75s step-end infinite;
+            width: 0;
+        }
+
+        /* Particle dots */
+        .particle {
+            position: absolute;
+            width: 4px; height: 4px;
+            background: #FACC15;
+            border-radius: 50%;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Timeline */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0; bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, #E4E4E7, transparent);
+            transform: translateX(-50%);
+        }
+        @media (max-width: 768px) {
+            .timeline-line { left: 20px; }
+        }
+
+        /* Smooth image zoom */
+        .img-zoom { transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+        .img-zoom:hover { transform: scale(1.05); }
+
+        /* Toast */
+        .toast {
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+    </style>
+</head>
+<body class="font-inter">
+
+    <!-- Reading Progress Bar -->
+    <div class="fixed top-0 left-0 w-full z-[60]">
+        <div id="progressBar" class="progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#hero" class="flex items-center gap-2 group">
+                <div class="w-9 h-9 bg-primary rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <span class="iconify text-accent text-lg" data-icon="lucide:brain-circuit"></span>
+                </div>
+                <span class="font-geist font-semibold text-lg tracking-tight">Komalpreet<span class="text-accent">.</span></span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#intro" class="nav-link text-sm font-medium text-zinc-500 hover:text-primary transition-colors duration-300">Introduction</a>
+                <a href="#future" class="nav-link text-sm font-medium text-zinc-500 hover:text-primary transition-colors duration-300">Future</a>
+                <a href="#healthcare" class="nav-link text-sm font-medium text-zinc-500 hover:text-primary transition-colors duration-300">Healthcare</a>
+                <a href="#education" class="nav-link text-sm font-medium text-zinc-500 hover:text-primary transition-colors duration-300">Education</a>
+                <a href="#transport" class="nav-link text-sm font-medium text-zinc-500 hover:text-primary transition-colors duration-300">Transport</a>
+                <a href="#business" class="nav-link text-sm font-medium text-zinc-500 hover:text-primary transition-colors duration-300">Business</a>
+            </div>
+
+            <!-- CTA + Mobile Toggle -->
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="hidden md:inline-flex items-center gap-2 bg-primary text-white text-xs font-semibold px-5 py-2.5 rounded-full hover:bg-zinc-800 transition-all duration-300 shadow-lg shadow-zinc-900/10">
+                    Let's Connect
+                    <span class="iconify text-sm" data-icon="lucide:arrow-right"></span>
+                </a>
+                <button id="menuToggle" class="md:hidden w-10 h-10 flex items-center justify-center rounded-xl hover:bg-zinc-100 transition-colors">
+                    <span class="iconify text-xl" data-icon="lucide:menu" id="menuIcon"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu md:hidden bg-white/95 backdrop-blur-lg border-t border-zinc-100">
+            <div class="px-6 py-4 flex flex-col gap-1">
+                <a href="#intro" class="mobile-link py-3 px-4 text-sm font-medium text-zinc-600 hover:text-primary hover:bg-zinc-50 rounded-xl transition-all">Introduction to AI</a>
+                <a href="#future" class="mobile-link py-3 px-4 text-sm font-medium text-zinc-600 hover:text-primary hover:bg-zinc-50 rounded-xl transition-all">Future of AI</a>
+                <a href="#healthcare" class="mobile-link py-3 px-4 text-sm font-medium text-zinc-600 hover:text-primary hover:bg-zinc-50 rounded-xl transition-all">AI in Healthcare</a>
+                <a href="#education" class="mobile-link py-3 px-4 text-sm font-medium text-zinc-600 hover:text-primary hover:bg-zinc-50 rounded-xl transition-all">AI in Education</a>
+                <a href="#transport" class="mobile-link py-3 px-4 text-sm font-medium text-zinc-600 hover:text-primary hover:bg-zinc-50 rounded-xl transition-all">AI in Transport</a>
+                <a href="#business" class="mobile-link py-3 px-4 text-sm font-medium text-zinc-600 hover:text-primary hover:bg-zinc-50 rounded-xl transition-all">AI in Business</a>
+                <a href="#contact" class="mt-2 py-3 px-4 bg-primary text-white text-sm font-semibold rounded-xl text-center">Let's Connect</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background -->
+        <div class="absolute inset-0 gradient-bg"></div>
+        <!-- Decorative Elements -->
+        <div class="blob-yellow -top-20 -right-20 opacity-30"></div>
+        <div class="blob-blue bottom-20 -left-20 opacity-20"></div>
+
+        <!-- Floating Particles -->
+        <div class="particle" style="top:15%;left:10%;animation:float 4s ease-in-out infinite;"></div>
+        <div class="particle" style="top:25%;right:15%;animation:float 5s ease-in-out 1s infinite;"></div>
+        <div class="particle" style="bottom:30%;left:20%;animation:float 6s ease-in-out 2s infinite;"></div>
+        <div class="particle" style="bottom:20%;right:25%;animation:float 4.5s ease-in-out 0.5s infinite;"></div>
+        <div class="particle" style="top:50%;left:50%;animation:float 5.5s ease-in-out 1.5s infinite;width:6px;height:6px;"></div>
+
+        <!-- Spinning Ring -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] md:w-[700px] md:h-[700px] spin-slow opacity-10">
+            <svg viewBox="0 0 700 700" fill="none">
+                <circle cx="350" cy="350" r="340" stroke="#FACC15" stroke-width="0.5" stroke-dasharray="10 5"/>
+                <circle cx="350" cy="350" r="280" stroke="#D4D4D8" stroke-width="0.5" stroke-dasharray="5 10"/>
+            </svg>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 bg-white/10 border border-white/10 rounded-full px-4 py-2 mb-8" style="animation: fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards;">
+                <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                <span class="text-xs font-medium text-zinc-300 tracking-wide">Exploring the Future of Intelligence</span>
+            </div>
+
+            <!-- Heading -->
+            <h1 class="font-geist font-semibold text-4xl md:text-7xl lg:text-8xl text-white leading-[0.95] tracking-tighter mb-6" style="animation: fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s both;">
+                The Future of<br>
+                <span class="relative inline-block">
+                    Artificial Intelligence
+                    <svg class="absolute -bottom-2 left-0 w-full" viewBox="0 0 400 12" fill="none"><path d="M2 8C60 2 140 2 200 6C260 10 340 4 398 8" stroke="#FACC15" stroke-width="3" stroke-linecap="round" stroke-dasharray="400" stroke-dashoffset="400" style="animation: dash 2s ease forwards 1s;"/></svg>
+                </span>
+            </h1>
+
+            <!-- Subheading -->
+            <p class="text-zinc-400 text-base md:text-lg font-light leading-relaxed max-w-2xl mx-auto mb-10" style="animation: fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.2s both;">
+                A deep dive into how AI is reshaping healthcare, education, transport, and business — crafted by <span class="text-accent font-medium">Komalpreet Kaur</span>
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4" style="animation: fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s both;">
+                <a href="#intro" class="group flex items-center gap-2 bg-accent text-primary text-sm font-semibold px-7 py-3.5 rounded-full hover:bg-accent-dark transition-all duration-300 shadow-lg shadow-yellow-500/20 pulse-glow">
+                    Start Exploring
+                    <span class="iconify group-hover:translate-x-1 transition-transform duration-300" data-icon="lucide:arrow-down"></span>
+                </a>
+                <a href="#future" class="flex items-center gap-2 bg-white/10 border border-white/10 text-white text-sm font-medium px-7 py-3.5 rounded-full hover:bg-white/20 transition-all duration-300">
+                    <span class="iconify" data-icon="lucide:sparkles"></span>
+                    View Future Predictions
+                </a>
+            </div>
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-6 mt-16 max-w-lg mx-auto" style="animation: fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.5s both;">
+                <div class="text-center">
+                    <div class="text-2xl md:text-3xl font-geist font-semibold text-white counter" data-target="97">0</div>
+                    <div class="text-xs text-zinc-500 mt-1">Million Jobs</div>
+                </div>
+                <div class="text-center border-x border-white/10">
+                    <div class="text-2xl md:text-3xl font-geist font-semibold text-white">$<span class="counter" data-target="15">0</span>T</div>
+                    <div class="text-xs text-zinc-500 mt-1">Economy by 2030</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-2xl md:text-3xl font-geist font-semibold text-white counter" data-target="77">0</div>
+                    <div class="text-xs text-zinc-500 mt-1">% Using AI</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2" style="animation: fadeInUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.7s both;">
+            <span class="text-[10px] text-zinc-500 uppercase tracking-widest">Scroll</span>
+            <div class="w-5 h-8 border border-zinc-600 rounded-full flex items-start justify-center p-1">
+                <div class="w-1 h-2 bg-accent rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== INTRODUCTION TO AI ==================== -->
+    <section id="intro" class="relative py-24 md:py-32 overflow-hidden">
+        <div class="blob-yellow top-0 right-0 opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+                <div class="animate-on-scroll inline-flex items-center gap-2 bg-zinc-100 rounded-full px-4 py-1.5 mb-6">
+                    <span class="iconify text-accent text-sm" data-icon="lucide:book-open"></span>
+                    <span class="text-xs font-semibold text-zinc-600 uppercase tracking-widest">Chapter 01</span>
+                </div>
+                <h2 class="animate-on-scroll delay-100 font-geist font-semibold text-3xl md:text-5xl tracking-tight leading-tight mb-5">
+                    Introduction to<br><span class="text-accent">Artificial Intelligence</span>
+                </h2>
+                <p class="animate-on-scroll delay-200 text-zinc-500 text-base md:text-lg font-light leading-relaxed">
+                    Understanding the technology that's redefining what machines can do
+                </p>
+            </div>
+
+            <!-- Content Grid -->
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Left: Image/Visual -->
+                <div class="animate-on-scroll from-left relative">
+                    <div class="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-xl">
+                        <img src="https://picsum.photos/seed/ai-brain-circuits/800/600.jpg" alt="AI Brain Visualization" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <div class="glass-card-dark rounded-2xl p-4">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 bg-accent/20 rounded-xl flex items-center justify-center">
+                                        <span class="iconify text-accent text-lg" data-icon="lucide:cpu"></span>
+                                    </div>
+                                    <div>
+                                        <div class="text-white text-sm font-semibold">AI Systems</div>
+                                        <div class="text-zinc-400 text-xs">Processing billions of data points</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Floating card -->
+                    <div class="absolute -top-4 -right-4 md:-right-8 float-animation">
+                        <div class="glass-card rounded-2xl p-4 shadow-lg">
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="iconify text-green-500" data-icon="lucide:trending-up"></span>
+                                <span class="text-xs font-semibold text-green-600">Growing Fast</span>
+                            </div>
+                            <div class="text-xl font-geist font-bold">37.3%</div>
+                            <div class="text-[10px] text-zinc-400">CAGR 2024-2030</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Content -->
+                <div>
+                    <div class="animate-on-scroll from-right">
+                        <h3 class="font-geist font-semibold text-2xl md:text-3xl tracking-tight mb-6">What Exactly is AI?</h3>
+                        <p class="text-zinc-600 text-base font-light leading-relaxed mb-6">
+                            Artificial Intelligence is the simulation of human intelligence processes by computer systems. These processes include <strong class="font-medium text-primary">learning</strong> (acquiring information and rules), <strong class="font-medium text-primary">reasoning</strong> (using rules to reach conclusions), and <strong class="font-medium text-primary">self-correction</strong>.
+                        </p>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed mb-8">
+                            From virtual assistants like Siri and Alexa to recommendation engines on Netflix and Amazon, AI is already deeply embedded in our daily lives. It encompasses machine learning, deep learning, natural language processing, computer vision, and robotics.
+                        </p>
+                    </div>
+
+                    <!-- Key Concepts -->
+                    <div class="space-y-4">
+                        <div class="animate-on-scroll from-right delay-100 flex items-start gap-4 p-4 rounded-2xl hover:bg-zinc-50 transition-colors duration-300">
+                            <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span class="iconify text-accent" data-icon="lucide:brain"></span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-sm mb-1">Machine Learning</div>
+                                <div class="text-zinc-500 text-sm font-light leading-relaxed">Algorithms that learn from data without being explicitly programmed</div>
+                            </div>
+                        </div>
+                        <div class="animate-on-scroll from-right delay-200 flex items-start gap-4 p-4 rounded-2xl hover:bg-zinc-50 transition-colors duration-300">
+                            <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span class="iconify text-accent" data-icon="lucide:message-square"></span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-sm mb-1">Natural Language Processing</div>
+                                <div class="text-zinc-500 text-sm font-light leading-relaxed">Enabling machines to understand and respond in human language</div>
+                            </div>
+                        </div>
+                        <div class="animate-on-scroll from-right delay-300 flex items-start gap-4 p-4 rounded-2xl hover:bg-zinc-50 transition-colors duration-300">
+                            <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span class="iconify text-accent" data-icon="lucide:eye"></span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-sm mb-1">Computer Vision</div>
+                                <div class="text-zinc-500 text-sm font-light leading-relaxed">Training machines to interpret and understand visual information</div>
+                            </div>
+                        </div>
+                        <div class="animate-on-scroll from-right delay-400 flex items-start gap-4 p-4 rounded-2xl hover:bg-zinc-50 transition-colors duration-300">
+                            <div class="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5">
+                                <span class="iconify text-accent" data-icon="lucide:bot"></span>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-sm mb-1">Robotics & Automation</div>
+                                <div class="text-zinc-500 text-sm font-light leading-relaxed">Physical machines powered by AI to perform complex tasks autonomously</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-5xl mx-auto"></div>
+
+    <!-- ==================== FUTURE OF AI ==================== -->
+    <section id="future" class="relative py-24 md:py-32 overflow-hidden">
+        <div class="blob-blue top-20 -left-20 opacity-15"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+                <div class="animate-on-scroll inline-flex items-center gap-2 bg-zinc-100 rounded-full px-4 py-1.5 mb-6">
+                    <span class="iconify text-accent text-sm" data-icon="lucide:sparkles"></span>
+                    <span class="text-xs font-semibold text-zinc-600 uppercase tracking-widest">Chapter 02</span>
+                </div>
+                <h2 class="animate-on-scroll delay-100 font-geist font-semibold text-3xl md:text-5xl tracking-tight leading-tight mb-5">
+                    The Future of<br><span class="text-accent">Artificial Intelligence</span>
+                </h2>
+                <p class="animate-on-scroll delay-200 text-zinc-500 text-base md:text-lg font-light leading-relaxed">
+                    Where AI is headed and what it means for humanity
+                </p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="relative max-w-4xl mx-auto">
+                <div class="timeline-line hidden md:block"></div>
+
+                <!-- Timeline Items -->
+                <div class="space-y-12 md:space-y-16">
+                    <!-- 2025 -->
+                    <div class="animate-on-scroll from-left relative md:flex md:items-center md:justify-end md:pr-[52%]">
+                        <div class="glass-card ai-card rounded-2xl p-6 md:p-8 md:text-right">
+                            <div class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-3 py-1 rounded-full mb-4">
+                                <span class="iconify" data-icon="lucide:calendar"></span> 2025
+                            </div>
+                            <h4 class="font-geist font-semibold text-lg mb-2">AI Agents Go Mainstream</h4>
+                            <p class="text-zinc-500 text-sm font-light leading-relaxed">Autonomous AI agents capable of completing multi-step tasks will become everyday tools, from booking trips to managing workflows.</p>
+                        </div>
+                        <!-- Dot -->
+                        <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-accent rounded-full border-4 border-surface shadow-md"></div>
+                    </div>
+
+                    <!-- 2027 -->
+                    <div class="animate-on-scroll from-right relative md:flex md:items-center md:pl-[52%]">
+                        <div class="glass-card ai-card rounded-2xl p-6 md:p-8">
+                            <div class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-3 py-1 rounded-full mb-4">
+                                <span class="iconify" data-icon="lucide:calendar"></span> 2027
+                            </div>
+                            <h4 class="font-geist font-semibold text-lg mb-2">Personalized AI Companions</h4>
+                            <p class="text-zinc-500 text-sm font-light leading-relaxed">AI companions that truly understand individual preferences, emotions, and needs will transform personal productivity and mental health support.</p>
+                        </div>
+                        <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-accent rounded-full border-4 border-surface shadow-md"></div>
+                    </div>
+
+                    <!-- 2030 -->
+                    <div class="animate-on-scroll from-left relative md:flex md:items-center md:justify-end md:pr-[52%]">
+                        <div class="glass-card ai-card rounded-2xl p-6 md:p-8 md:text-right">
+                            <div class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-3 py-1 rounded-full mb-4">
+                                <span class="iconify" data-icon="lucide:calendar"></span> 2030
+                            </div>
+                            <h4 class="font-geist font-semibold text-lg mb-2">AGI on the Horizon</h4>
+                            <p class="text-zinc-500 text-sm font-light leading-relaxed">Artificial General Intelligence — machines with human-level cognitive abilities — moves from theory to early prototypes, sparking global conversation.</p>
+                        </div>
+                        <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-accent rounded-full border-4 border-surface shadow-md"></div>
+                    </div>
+
+                    <!-- 2035 -->
+                    <div class="animate-on-scroll from-right relative md:flex md:items-center md:pl-[52%]">
+                        <div class="glass-card ai-card rounded-2xl p-6 md:p-8">
+                            <div class="inline-flex items-center gap-2 bg-accent/10 text-accent text-xs font-bold px-3 py-1 rounded-full mb-4">
+                                <span class="iconify" data-icon="lucide:calendar"></span> 2035
+                            </div>
+                            <h4 class="font-geist font-semibold text-lg mb-2">AI-Native Cities</h4>
+                            <p class="text-zinc-500 text-sm font-light leading-relaxed">Smart cities fully integrated with AI — from traffic and energy to waste management and public safety — become the global standard.</p>
+                        </div>
+                        <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-accent rounded-full border-4 border-surface shadow-md"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Future Impact Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16 md:mt-20">
+                <div class="animate-on-scroll delay-100 glass-card ai-card rounded-2xl p-5 text-center">
+                    <div class="text-2xl md:text-3xl font-geist font-bold text-primary mb-1">$15.7T</div>
+                    <div class="text-xs text-zinc-400 font-medium">Global AI Economy</div>
+                </div>
+                <div class="animate-on-scroll delay-200 glass-card ai-card rounded-2xl p-5 text-center">
+                    <div class="text-2xl md:text-3xl font-geist font-bold text-primary mb-1">2.3M</div>
+                    <div class="text-xs text-zinc-400 font-medium">New AI Jobs</div>
+                </div>
+                <div class="animate-on-scroll delay-300 glass-card ai-card rounded-2xl p-5 text-center">
+                    <div class="text-2xl md:text-3xl font-geist font-bold text-primary mb-1">90%</div>
+                    <div class="text-xs text-zinc-400 font-medium">Enterprises Using AI</div>
+                </div>
+                <div class="animate-on-scroll delay-400 glass-card ai-card rounded-2xl p-5 text-center">
+                    <div class="text-2xl md:text-3xl font-geist font-bold text-primary mb-1">40%</div>
+                    <div class="text-xs text-zinc-400 font-medium">Productivity Boost</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-5xl mx-auto"></div>
+
+    <!-- ==================== AI IN HEALTHCARE ==================== -->
+    <section id="healthcare" class="relative py-24 md:py-32 overflow-hidden">
+        <div class="blob-yellow -bottom-20 right-0 opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+                <div class="animate-on-scroll inline-flex items-center gap-2 bg-red-50 rounded-full px-4 py-1.5 mb-6">
+                    <span class="iconify text-red-500 text-sm" data-icon="lucide:heart-pulse"></span>
+                    <span class="text-xs font-semibold text-red-600 uppercase tracking-widest">Chapter 03</span>
+                </div>
+                <h2 class="animate-on-scroll delay-100 font-geist font-semibold text-3xl md:text-5xl tracking-tight leading-tight mb-5">
+                    AI in <span class="text-red-500">Healthcare</span>
+                </h2>
+                <p class="animate-on-scroll delay-200 text-zinc-500 text-base md:text-lg font-light leading-relaxed">
+                    Revolutionizing diagnosis, treatment, and patient care
+                </p>
+            </div>
+
+            <!-- Feature Cards -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="animate-on-scroll delay-100 ai-card glass-card rounded-2xl overflow-hidden group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://picsum.photos/seed/medical-scan-ai/600/400.jpg" alt="AI Diagnosis" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute top-4 left-4">
+                            <div class="w-10 h-10 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center">
+                                <span class="iconify text-white text-lg" data-icon="lucide:scan-search"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-geist font-semibold text-lg mb-2">Early Disease Detection</h4>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed">AI algorithms can detect cancers, heart diseases, and neurological conditions years before symptoms appear through imaging analysis.</p>
+                        <div class="mt-4 flex items-center gap-2 text-red-500 text-xs font-semibold">
+                            <span>97% accuracy</span>
+                            <span class="iconify" data-icon="lucide:arrow-right"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="animate-on-scroll delay-200 ai-card glass-card rounded-2xl overflow-hidden group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://picsum.photos/seed/drug-discovery-lab/600/400.jpg" alt="Drug Discovery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute top-4 left-4">
+                            <div class="w-10 h-10 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center">
+                                <span class="iconify text-white text-lg" data-icon="lucide:flask-conical"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-geist font-semibold text-lg mb-2">Drug Discovery & Development</h4>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed">AI reduces drug discovery time from 10+ years to just months by predicting molecular interactions and simulating clinical trials.</p>
+                        <div class="mt-4 flex items-center gap-2 text-red-500 text-xs font-semibold">
+                            <span>10x faster R&D</span>
+                            <span class="iconify" data-icon="lucide:arrow-right"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="animate-on-scroll delay-300 ai-card glass-card rounded-2xl overflow-hidden group md:col-span-2 lg:col-span-1">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://picsum.photos/seed/robot-surgery/600/400.jpg" alt="Robotic Surgery" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute top-4 left-4">
+                            <div class="w-10 h-10 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center">
+                                <span class="iconify text-white text-lg" data-icon="lucide:hand-metal"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-geist font-semibold text-lg mb-2">Robotic Surgery</h4>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed">AI-powered surgical robots perform complex procedures with superhuman precision, reducing recovery times and complications significantly.</p>
+                        <div class="mt-4 flex items-center gap-2 text-red-500 text-xs font-semibold">
+                            <span>73% less complications</span>
+                            <span class="iconify" data-icon="lucide:arrow-right"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Healthcare Quote -->
+            <div class="animate-on-scroll mt-12 md:mt-16 gradient-bg rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-[80px]"></div>
+                <div class="relative z-10 max-w-3xl">
+                    <span class="iconify text-accent/50 text-4xl mb-4 block" data-icon="lucide:quote"></span>
+                    <p class="text-white text-lg md:text-xl font-light leading-relaxed mb-6">
+                        "AI will not replace doctors. But doctors who use AI will replace those who don't."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-accent/20 rounded-full flex items-center justify-center">
+                            <span class="iconify text-accent" data-icon="lucide:user"></span>
+                        </div>
+                        <div>
+                            <div class="text-white text-sm font-semibold">Dr. Eric Topol</div>
+                            <div class="text-zinc-400 text-xs">Author, "Deep Medicine"</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-5xl mx-auto"></div>
+
+    <!-- ==================== AI IN EDUCATION ==================== -->
+    <section id="education" class="relative py-24 md:py-32 overflow-hidden">
+        <div class="blob-blue top-0 right-20 opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+                <div class="animate-on-scroll inline-flex items-center gap-2 bg-blue-50 rounded-full px-4 py-1.5 mb-6">
+                    <span class="iconify text-blue-500 text-sm" data-icon="lucide:graduation-cap"></span>
+                    <span class="text-xs font-semibold text-blue-600 uppercase tracking-widest">Chapter 04</span>
+                </div>
+                <h2 class="animate-on-scroll delay-100 font-geist font-semibold text-3xl md:text-5xl tracking-tight leading-tight mb-5">
+                    AI in <span class="text-blue-500">Education</span>
+                </h2>
+                <p class="animate-on-scroll delay-200 text-zinc-500 text-base md:text-lg font-light leading-relaxed">
+                    Personalizing learning experiences for every student on the planet
+                </p>
+            </div>
+
+            <!-- Two Column Layout -->
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+                <!-- Left: Image + Feature -->
+                <div class="animate-on-scroll from-left space-y-6">
+                    <div class="relative rounded-3xl overflow-hidden aspect-[4/3] shadow-xl">
+                        <img src="https://picsum.photos/seed/student-ai-learning/800/600.jpg" alt="AI in Education" class="w-full h-full object-cover img-zoom">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 right-6">
+                            <div class="text-white font-geist font-semibold text-xl mb-1">Personalized Learning Paths</div>
+                            <div class="text-zinc-300 text-sm font-light">AI adapts to each student's pace and style</div>
+                        </div>
+                    </div>
+
+                    <!-- Mini Stat Cards -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="glass-card ai-card rounded-2xl p-5 text-center">
+                            <span class="iconify text-blue-500 text-2xl mb-2 mx-auto block" data-icon="lucide:users"></span>
+                            <div class="font-geist font-bold text-xl">350M+</div>
+                            <div class="text-xs text-zinc-400">Students Impacted</div>
+                        </div>
+                        <div class="glass-card ai-card rounded-2xl p-5 text-center">
+                            <span class="iconify text-blue-500 text-2xl mb-2 mx-auto block" data-icon="lucide:clock"></span>
+                            <div class="font-geist font-bold text-xl">30%</div>
+                            <div class="text-xs text-zinc-400">Faster Learning</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Features List -->
+                <div class="space-y-5">
+                    <div class="animate-on-scroll from-right delay-100 glass-card ai-card rounded-2xl p-6 flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-blue-500 text-xl" data-icon="lucide:route"></span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-base mb-1">Adaptive Learning Systems</h4>
+                            <p class="text-zinc-500 text-sm font-light leading-relaxed">AI analyzes student performance in real-time and dynamically adjusts the difficulty, content, and pace of lessons to optimize learning outcomes.</p>
+                        </div>
+                    </div>
+
+                    <div class="animate-on-scroll from-right delay-200 glass-card ai-card rounded-2xl p-6 flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-blue-500 text-xl" data-icon="lucide:message-circle"></span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-base mb-1">AI Tutors & Chatbots</h4>
+                            <p class="text-zinc-500 text-sm font-light leading-relaxed">24/7 available AI tutors provide instant explanations, answer questions, and offer step-by-step guidance — like having a personal teacher always there.</p>
+                        </div>
+                    </div>
+
+                    <div class="animate-on-scroll from-right delay-300 glass-card ai-card rounded-2xl p-6 flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-blue-500 text-xl" data-icon="lucide:file-check-2"></span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-base mb-1">Automated Grading & Feedback</h4>
+                            <p class="text-zinc-500 text-sm font-light leading-relaxed">AI can grade essays, assignments, and exams with near-human accuracy, providing detailed feedback instantly and freeing teachers to focus on mentoring.</p>
+                        </div>
+                    </div>
+
+                    <div class="animate-on-scroll from-right delay-400 glass-card ai-card rounded-2xl p-6 flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-blue-500 text-xl" data-icon="lucide:globe"></span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-base mb-1">Global Accessibility</h4>
+                            <p class="text-zinc-500 text-sm font-light leading-relaxed">AI translation and voice interfaces break language barriers, making quality education accessible to students in remote and underserved communities worldwide.</p>
+                        </div>
+                    </div>
+
+                    <div class="animate-on-scroll from-right delay-500 glass-card ai-card rounded-2xl p-6 flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                            <span class="iconify text-blue-500 text-xl" data-icon="lucide:bar-chart-3"></span>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-base mb-1">Predictive Analytics</h4>
+                            <p class="text-zinc-500 text-sm font-light leading-relaxed">Schools use AI to identify at-risk students early, predict dropout rates, and intervene with targeted support before problems escalate.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-5xl mx-auto"></div>
+
+    <!-- ==================== AI IN TRANSPORT ==================== -->
+    <section id="transport" class="relative py-24 md:py-32 overflow-hidden">
+        <div class="blob-yellow bottom-0 left-0 opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+                <div class="animate-on-scroll inline-flex items-center gap-2 bg-emerald-50 rounded-full px-4 py-1.5 mb-6">
+                    <span class="iconify text-emerald-500 text-sm" data-icon="lucide:car"></span>
+                    <span class="text-xs font-semibold text-emerald-600 uppercase tracking-widest">Chapter 05</span>
+                </div>
+                <h2 class="animate-on-scroll delay-100 font-geist font-semibold text-3xl md:text-5xl tracking-tight leading-tight mb-5">
+                    AI in <span class="text-emerald-500">Transport</span>
+                </h2>
+                <p class="animate-on-scroll delay-200 text-zinc-500 text-base md:text-lg font-light leading-relaxed">
+                    Driving the future of mobility — from autonomous vehicles to smart logistics
+                </p>
+            </div>
+
+            <!-- Large Feature Card -->
+            <div class="animate-on-scroll scale-up relative rounded-3xl overflow-hidden mb-8 group">
+                <div class="relative h-64 md:h-80 lg:h-96">
+                    <img src="https://picsum.photos/seed/autonomous-car-future/1200/500.jpg" alt="Autonomous Vehicles" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="px-8 md:px-12 max-w-xl">
+                            <div class="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500/30 rounded-full px-3 py-1 mb-4">
+                                <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                                <span class="text-emerald-300 text-xs font-semibold">Level 5 Autonomy</span>
+                            </div>
+                            <h3 class="font-geist font-semibold text-2xl md:text-4xl text-white tracking-tight mb-3">Self-Driving Vehicles</h3>
+                            <p class="text-zinc-300 text-sm md:text-base font-light leading-relaxed">Fully autonomous vehicles that can navigate any road, in any condition, without human intervention — reducing accidents by up to 90%.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Grid Features -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="animate-on-scroll delay-100 ai-card glass-card rounded-2xl p-6 text-center">
+                    <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="iconify text-emerald-500 text-2xl" data-icon="lucide:map-pin"></span>
+                    </div>
+                    <h4 class="font-semibold text-sm mb-2">Smart Traffic Management</h4>
+                    <p class="text-zinc-500 text-xs font-light leading-relaxed">AI optimizes traffic signals in real-time, reducing congestion by 25% and cutting commute times dramatically.</p>
+                </div>
+                <div class="animate-on-scroll delay-200 ai-card glass-card rounded-2xl p-6 text-center">
+                    <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="iconify text-emerald-500 text-2xl" data-icon="lucide:truck"></span>
+                    </div>
+                    <h4 class="font-semibold text-sm mb-2">Autonomous Logistics</h4>
+                    <p class="text-zinc-500 text-xs font-light leading-relaxed">Self-driving trucks and drones deliver goods faster, cheaper, and with lower carbon emissions than traditional freight.</p>
+                </div>
+                <div class="animate-on-scroll delay-300 ai-card glass-card rounded-2xl p-6 text-center">
+                    <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="iconify text-emerald-500 text-2xl" data-icon="lucide:train-front"></span>
+                    </div>
+                    <h4 class="font-semibold text-sm mb-2">AI-Powered Rail</h4>
+                    <p class="text-zinc-500 text-xs font-light leading-relaxed">Predictive maintenance and AI scheduling make rail transport more reliable, efficient, and safer than ever.</p>
+                </div>
+                <div class="animate-on-scroll delay-400 ai-card glass-card rounded-2xl p-6 text-center">
+                    <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                        <span class="iconify text-emerald-500 text-2xl" data-icon="lucide:plane"></span>
+                    </div>
+                    <h4 class="font-semibold text-sm mb-2">Aviation & Drones</h4>
+                    <p class="text-zinc-500 text-xs font-light leading-relaxed">AI assists pilots with real-time decisions and enables autonomous drones for delivery, surveying, and emergency response.</p>
+                </div>
+            </div>
+
+            <!-- Transport Impact Bar -->
+            <div class="animate-on-scroll mt-12 glass-card rounded-2xl p-6 md:p-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium">Accident Reduction</span>
+                            <span class="text-sm font-bold text-emerald-500">90%</span>
+                        </div>
+                        <div class="w-full h-2 bg-zinc-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-emerald-500 rounded-full progress-fill" data-width="90" style="width:0%;transition:width 1.5s cubic-bezier(0.16,1,0.3,1);"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium">Emission Reduction</span>
+                            <span class="text-sm font-bold text-emerald-500">60%</span>
+                        </div>
+                        <div class="w-full h-2 bg-zinc-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-emerald-500 rounded-full progress-fill" data-width="60" style="width:0%;transition:width 1.5s cubic-bezier(0.16,1,0.3,1) 0.2s;"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium">Cost Savings</span>
+                            <span class="text-sm font-bold text-emerald-500">45%</span>
+                        </div>
+                        <div class="w-full h-2 bg-zinc-100 rounded-full overflow-hidden">
+                            <div class="h-full bg-emerald-500 rounded-full progress-fill" data-width="45" style="width:0%;transition:width 1.5s cubic-bezier(0.16,1,0.3,1) 0.4s;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-5xl mx-auto"></div>
+
+    <!-- ==================== AI IN BUSINESS ==================== -->
+    <section id="business" class="relative py-24 md:py-32 overflow-hidden">
+        <div class="blob-blue -top-10 right-0 opacity-10"></div>
+        <div class="blob-yellow bottom-20 -left-10 opacity-10"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 md:mb-20">
+                <div class="animate-on-scroll inline-flex items-center gap-2 bg-purple-50 rounded-full px-4 py-1.5 mb-6">
+                    <span class="iconify text-purple-500 text-sm" data-icon="lucide:briefcase"></span>
+                    <span class="text-xs font-semibold text-purple-600 uppercase tracking-widest">Chapter 06</span>
+                </div>
+                <h2 class="animate-on-scroll delay-100 font-geist font-semibold text-3xl md:text-5xl tracking-tight leading-tight mb-5">
+                    AI in <span class="text-purple-500">Business</span>
+                </h2>
+                <p class="animate-on-scroll delay-200 text-zinc-500 text-base md:text-lg font-light leading-relaxed">
+                    Transforming enterprises with intelligent automation and data-driven decisions
+                </p>
+            </div>
+
+            <!-- Bento Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <!-- Large Card -->
+                <div class="animate-on-scroll delay-100 ai-card glass-card rounded-2xl p-8 md:col-span-2 lg:col-span-2 relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-purple-100 rounded-full blur-[60px] opacity-50 group-hover:opacity-80 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-5">
+                            <span class="iconify text-purple-500 text-xl" data-icon="lucide:line-chart"></span>
+                        </div>
+                        <h4 class="font-geist font-semibold text-xl mb-3">Predictive Analytics & Decision Making</h4>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed max-w-lg mb-6">AI analyzes vast datasets to forecast market trends, customer behavior, and business risks — enabling leaders to make proactive, data-driven decisions instead of reactive ones.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs font-medium bg-purple-50 text-purple-600 px-3 py-1 rounded-full">Market Forecasting</span>
+                            <span class="text-xs font-medium bg-purple-50 text-purple-600 px-3 py-1 rounded-full">Risk Analysis</span>
+                            <span class="text-xs font-medium bg-purple-50 text-purple-600 px-3 py-1 rounded-full">Demand Prediction</span>
+                            <span class="text-xs font-medium bg-purple-50 text-purple-600 px-3 py-1 rounded-full">Anomaly Detection</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small Card -->
+                <div class="animate-on-scroll delay-200 ai-card glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-5">
+                            <span class="iconify text-purple-500 text-xl" data-icon="lucide:bot"></span>
+                        </div>
+                        <h4 class="font-geist font-semibold text-lg mb-2">Customer Service AI</h4>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed">Chatbots and virtual agents handle 80% of customer queries instantly, 24/7.</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-zinc-100">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-zinc-400">Resolution Rate</span>
+                            <span class="text-sm font-bold text-purple-500">92%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small Card -->
+                <div class="animate-on-scroll delay-300 ai-card glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-5">
+                            <span class="iconify text-purple-500 text-xl" data-icon="lucide:target"></span>
+                        </div>
+                        <h4 class="font-geist font-semibold text-lg mb-2">Hyper-Personalization</h4>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed">AI delivers tailored product recommendations, content, and marketing to each individual customer.</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-zinc-100">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-zinc-400">Revenue Uplift</span>
+                            <span class="text-sm font-bold text-purple-500">+40%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Small Card -->
+                <div class="animate-on-scroll delay-400 ai-card glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-5">
+                            <span class="iconify text-purple-500 text-xl" data-icon="lucide:factory"></span>
+                        </div>
+                        <h4 class="font-geist font-semibold text-lg mb-2">Process Automation</h4>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed">RPA powered by AI automates repetitive tasks like data entry, invoicing, and report generation.</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-zinc-100">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs text-zinc-400">Time Saved</span>
+                            <span class="text-sm font-bold text-purple-500">70%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Large Card -->
+                <div class="animate-on-scroll delay-500 ai-card glass-card rounded-2xl p-8 md:col-span-2 lg:col-span-1 relative overflow-hidden group">
+                    <div class="absolute bottom-0 left-0 w-40 h-40 bg-purple-100 rounded-full blur-[60px] opacity-50"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-5">
+                            <span class="iconify text-purple-500 text-xl" data-icon="lucide:shield-check"></span>
+                        </div>
+                        <h4 class="font-geist font-semibold text-lg mb-2">Fraud Detection & Security</h4>
+                        <p class="text-zinc-500 text-sm font-light leading-relaxed">AI monitors millions of transactions per second, identifying fraudulent patterns that humans would miss — protecting billions of dollars annually.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business CTA -->
+            <div class="animate-on-scroll mt-12 text-center">
+                <div class="glass-card rounded-3xl p-8 md:p-12">
+                    <div class="iconify text-accent text-3xl mb-4 mx-auto" data-icon="lucide:lightbulb"></div>
+                    <h4 class="font-geist font-semibold text-xl md:text-2xl mb-3">AI is Not the Future — It's the Present</h4>
+                    <p class="text-zinc-500 text-sm md:text-base font-light max-w-xl mx-auto mb-6">Businesses that embrace AI today aren't just preparing for the future — they're already living in it. The question isn't whether to adopt AI, but how fast you can.</p>
+                    <a href="#contact" class="inline-flex items-center gap-2 bg-primary text-white text-sm font-semibold px-6 py-3 rounded-full hover:bg-zinc-800 transition-all duration-300 shadow-lg shadow-zinc-900/10">
+                        Discuss This Topic
+                        <span class="iconify" data-icon="lucide:arrow-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-5xl mx-auto"></div>
+
+    <!-- ==================== ABOUT / CONTACT ==================== -->
+    <section id="contact" class="relative py-24 md:py-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <!-- Left: About -->
+                <div>
+                    <div class="animate-on-scroll inline-flex items-center gap-2 bg-zinc-100 rounded-full px-4 py-1.5 mb-6">
+                        <span class="iconify text-accent text-sm" data-icon="lucide:user-circle"></span>
+                        <span class="text-xs font-semibold text-zinc-600 uppercase tracking-widest">About the Creator</span>
+                    </div>
+                    <h2 class="animate-on-scroll delay-100 font-geist font-semibold text-3xl md:text-5xl tracking-tight leading-tight mb-6">
+                        Hi, I'm<br><span class="text-accent">Komalpreet Kaur</span>
+                    </h2>
+                    <p class="animate-on-scroll delay-200 text-zinc-500 text-base font-light leading-relaxed mb-6">
+                        I'm passionate about exploring how Artificial Intelligence is shaping our world. This project is my deep dive into understanding AI's transformative potential across healthcare, education, transport, and business — and sharing that knowledge with you.
+                    </p>
+                    <p class="animate-on-scroll delay-300 text-zinc-400 text-sm font-light leading-relaxed mb-8">
+                        I believe AI isn't something to fear — it's something to understand, embrace, and guide responsibly. The future belongs to those who learn to work alongside intelligent machines.
+                    </p>
+
+                    <!-- Social Links -->
+                    <div class="animate-on-scroll delay-400 flex items-center gap-3">
+                        <a href="#" class="w-11 h-11 bg-zinc-100 rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 text-zinc-600">
+                            <span class="iconify text-lg" data-icon="lucide:linkedin"></span>
+                        </a>
+                        <a href="#" class="w-11 h-11 bg-zinc-100 rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 text-zinc-600">
+                            <span class="iconify text-lg" data-icon="lucide:github"></span>
+                        </a>
+                        <a href="#" class="w-11 h-11 bg-zinc-100 rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 text-zinc-600">
+                            <span class="iconify text-lg" data-icon="lucide:twitter"></span>
+                        </a>
+                        <a href="#" class="w-11 h-11 bg-zinc-100 rounded-xl flex items-center justify-center hover:bg-primary hover:text-white transition-all duration-300 text-zinc-600">
+                            <span class="iconify text-lg" data-icon="lucide:mail"></span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Contact Form -->
+                <div class="animate-on-scroll from-right">
+                    <div class="glass-card rounded-3xl p-8 md:p-10">
+                        <h3 class="font-geist font-semibold text-xl mb-2">Get in Touch</h3>
+                        <p class="text-zinc-400 text-sm font-light mb-8">Have thoughts on AI's future? Let's discuss.</p>
+
+                        <form id="contactForm" class="space-y-5">
+                            <div>
+                                <label class="text-xs font-semibold text-zinc-600 uppercase tracking-wider block mb-2">Your Name</label>
+                                <input type="text" placeholder="John Doe" required class="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-sm font-light focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-300">
+                            </div>
+                            <div>
+                                <label class="text-xs font-semibold text-zinc-600 uppercase tracking-wider block mb-2">Email Address</label>
+                                <input type="email" placeholder="john@example.com" required class="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-sm font-light focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-300">
+                            </div>
+                            <div>
+                                <label class="text-xs font-semibold text-zinc-600 uppercase tracking-wider block mb-2">Message</label>
+                                <textarea rows="4" placeholder="Share your thoughts on AI..." required class="w-full px-4 py-3 bg-zinc-50 border border-zinc-200 rounded-xl text-sm font-light focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all duration-300 resize-none"></textarea>
+                            </div>
+                            <button type="submit" class="w-full flex items-center justify-center gap-2 bg-primary text-white text-sm font-semibold py-3.5 rounded-xl hover:bg-zinc-800 transition-all duration-300 shadow-lg shadow-zinc-900/10">
+                                Send Message
+                                <span class="iconify" data-icon="lucide:send"></span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="gradient-bg py-16 md:py-20 relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-zinc-700 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-9 h-9 bg-accent rounded-xl flex items-center justify-center">
+                            <span class="iconify text-primary text-lg" data-icon="lucide:brain-circuit"></span>
+                        </div>
+                        <span class="font-geist font-semibold text-lg text-white tracking-tight">Komalpreet<span class="text-accent">.</span></span>
+                    </div>
+                    <p class="text-zinc-400 text-sm font-light leading-relaxed max-w-sm mb-6">
+                        Exploring the future of Artificial Intelligence and its impact on healthcare, education, transport, and business.
+                    </p>
+                    <div class="flex items-center gap-2">
+                        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                        <span class="text-xs text-zinc-500">Always learning, always building</span>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white text-xs font-semibold uppercase tracking-widest mb-4">Topics</h4>
+                    <div class="space-y-2">
+                        <a href="#intro" class="block text-zinc-500 text-sm hover:text-accent transition-colors duration-300">Introduction to AI</a>
+                        <a href="#future" class="block text-zinc-500 text-sm hover:text-accent transition-colors duration-300">Future of AI</a>
+                        <a href="#healthcare" class="block text-zinc-500 text-sm hover:text-accent transition-colors duration-300">AI in Healthcare</a>
+                        <a href="#education" class="block text-zinc-500 text-sm hover:text-accent transition-colors duration-300">AI in Education</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white text-xs font-semibold uppercase tracking-widest mb-4">More</h4>
+                    <div class="space-y-2">
+                        <a href="#transport" class="block text-zinc-500 text-sm hover:text-accent transition-colors duration-300">AI in Transport</a>
+                        <a href="#business" class="block text-zinc-500 text-sm hover:text-accent transition-colors duration-300">AI in Business</a>
+                        <a href="#contact" class="block text-zinc-500 text-sm hover:text-accent transition-colors duration-300">Contact</a>
+                        <a href="#hero" class="block text-zinc-500 text-sm hover:text-accent transition-colors duration-300">Back to Top</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom -->
+            <div class="border-t border-zinc-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-zinc-600 text-xs font-light">
+                    © 2025 Komalpreet Kaur. Crafted with passion for AI.
+                </p>
+                <div class="flex items-center gap-1 text-zinc-600 text-xs">
+                    Made with
+                    <span class="iconify text-red-500 mx-0.5" data-icon="lucide:heart"></span>
+                    and
+                    <span class="iconify text-accent mx-0.5" data-icon="lucide:sparkles"></span>
+                    AI
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center shadow-lg shadow-zinc-900/20 z-50 opacity-0 translate-y-4 pointer-events-none transition-all duration-300 hover:bg-zinc-800">
+        <span class="iconify text-lg" data-icon="lucide:arrow-up"></span>
+    </button>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:w-80 bg-primary text-white rounded-2xl p-4 shadow-2xl z-50 flex items-center gap-3">
+        <div class="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+            <span class="iconify text-green-400 text-lg" data-icon="lucide:check-circle"></span>
+        </div>
+        <div>
+            <div class="text-sm font-semibold">Message Sent!</div>
+            <div class="text-xs text-zinc-400">Thanks for reaching out, Komalpreet will reply soon.</div>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        // ===== Mobile Menu Toggle =====
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        let menuOpen = false;
+
+        menuToggle.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('open', menuOpen);
+            menuIcon.setAttribute('data-icon', menuOpen ? 'lucide:x' : 'lucide:menu');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuOpen = false;
+                mobileMenu.classList.remove('open');
+                menuIcon.setAttribute('data-icon', 'lucide:menu');
+            });
+        });
+
+        // ===== Navbar Scroll Effect =====
+        const navbar = document.getElementById('navbar');
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+
+            if (currentScroll > 50) {
+                navbar.style.background = 'rgba(250,250,250,0.9)';
+                navbar.style.backdropFilter = 'blur(16px)';
+                navbar.style.borderBottom = '1px solid rgba(228,228,231,0.5)';
+                navbar.style.padding = '0';
+            } else {
+                navbar.style.background = 'transparent';
+                navbar.style.backdropFilter = 'none';
+                navbar.style.borderBottom = 'none';
+            }
+
+            lastScroll = currentScroll;
+        });
+
+        // ===== Reading Progress Bar =====
+        const progressBar = document.getElementById('progressBar');
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrollTop / docHeight) * 100;
+            progressBar.style.transform = `scaleX(${progress / 100})`;
+        });
+
+        // ===== Active Nav Link =====
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 200;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ===== Scroll Animations (Intersection Observer) =====
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+
+                    // Animate progress bars within visible elements
+                    entry.target.querySelectorAll('.progress-fill').forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        if (width) {
+                            setTimeout(() => { bar.style.width = width + '%'; }, 300);
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+        // ===== Counter Animation =====
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    if (target && !counter.dataset.animated) {
+                        counter.dataset.animated = 'true';
+                        let current = 0;
+                        const increment = target / 60;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                counter.textContent = target;
+                                clearInterval(timer);
+                            } else {
+                                counter.textContent = Math.floor(current);
+                            }
+                        }, 25);
+                    }
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+        // ===== Back to Top Button =====
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                backToTop.style.opacity = '1';
+                backToTop.style.transform = 'translateY(0)';
+                backToTop.style.pointerEvents = 'auto';
+            } else {
+                backToTop.style.opacity = '0';
+                backToTop.style.transform = 'translateY(16px)';
+                backToTop.style.pointerEvents = 'none';
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ===== Contact Form =====
+        const contactForm = document.getElementById('contactForm');
+        const toast = document.getElementById('toast');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Show toast
+            toast.classList.add('show');
+            // Reset form
+            contactForm.reset();
+            // Hide toast after 4s
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        });
+
+        // ===== Smooth scroll for anchor links =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
